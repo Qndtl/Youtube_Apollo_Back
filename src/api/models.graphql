@@ -1,0 +1,35 @@
+type MutationResult{
+  ok: Boolean!
+  error: String
+}
+
+type LoginResult {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type User {
+  id: Int! 
+  email: String!
+  username: String!
+  password: String!
+  fullname: String!
+  avatar: String
+  videos: [Video]
+  followers: [User]  
+  following: [User]  
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Video {
+  id: Int!  
+  file: String!
+  title: String!
+  description: String!
+  user: User!
+  userId: Int!
+  createdAt: String!
+  updatedAt: String!
+}
