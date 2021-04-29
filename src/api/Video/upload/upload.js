@@ -4,11 +4,16 @@ import { protectedResolver } from "../../../utils/user.utils";
 
 export default {
   Mutation: {
-    upload: protectedResolver(async (_, { file, title, description }, { loggedInUser }) => {
-      const fileUrl = await uploadToS3(file, loggedInUser.id, "apollo-youtube-video");
-      const newVideo = await client.video.create({ data: { file: fileUrl, title, description, userId: loggedInUser.id } });
-      console.log(newVideo);
-      return newVideo;
+    upload: protectedResolver(async (_, { file, thumbnail, title, description }, { loggedInUser }) => {
+      try {
+        const fileUrl = await uploadToS3(file, loggedInUser.id, "apollo-youtube-video");
+        const thumbnailUrl = await uploadToS3(thumbnail, loggedInUser.id, "apollo-youtube-video/thumbnail")
+        const newVideo = await client.video.create({ data: { file: fileUrl, thumbnail: thumbnailUrl, title, description, userId: loggedInUser.id } });
+        console.log(newVideo);
+        return newVideo;
+      } catch (err) {
+        console.log(err)
+      }
     })
   }
 }
