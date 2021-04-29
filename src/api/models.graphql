@@ -38,6 +38,8 @@ type Video {
   likes: [Like]
   createdAt: String!
   updatedAt: String!
+  isLiked: Boolean!
+  totalLikeNum: Int!
 }
 
 type Like {
