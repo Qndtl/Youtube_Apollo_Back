@@ -18,6 +18,10 @@ export default {
     totalFollowerNum: async ({ id }) => {
       const user = await client.user.findUnique({ where: { id }, include: { followers: { select: { id: true } } } });
       return user.followers.length;
+    },
+    totalVideoNum: async ({ id }) => {
+      const user = await client.user.findUnique({ where: { id }, include: { videos: { select: { id: true } } } });
+      return user.videos.length;
     }
   }
 }

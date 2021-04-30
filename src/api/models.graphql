@@ -25,6 +25,7 @@ type User {
   likes: [Like]
   isFollowing: Boolean!
   totalFollowerNum: Int!
+  totalVideoNum: Int!
 }
 
 type Video {
