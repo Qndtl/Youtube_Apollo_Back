@@ -18,7 +18,8 @@ type User {
   avatar: String
   videos: [Video]
   followers: [User]  
-  following: [User]  
+  following: [User]
+  comments: [Comment]
   createdAt: String!
   updatedAt: String!
   isMe: Boolean!
@@ -37,16 +38,27 @@ type Video {
   user: User!
   userId: Int!
   likes: [Like]
+  comments: [Comment]
   createdAt: String!
   updatedAt: String!
   isLiked: Boolean!
   totalLikeNum: Int!
+  totalCommentNum: Int!
 }
 
 type Like {
   id: Int!
   user: User!
   video: Video!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Comment {
+  id: Int!
+  user: User!
+  video: Video!
+  text: String!
   createdAt: String!
   updatedAt: String!
 }

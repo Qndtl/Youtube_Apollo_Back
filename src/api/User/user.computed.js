@@ -2,6 +2,7 @@ import client from "../../client";
 
 export default {
   User: {
+    comments: ({ id }) => client.user.findUnique({ where: { id } }).comments(),
     isMe: ({ id }, _, { loggedInUser }) => {
       if (!loggedInUser) {
         return false;
