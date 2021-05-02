@@ -8,6 +8,8 @@ dotenv.config();
 
 const app = express();
 
+const PORT = process.env.PORT;
+
 app.use(morgan('dev'));
 app.use(express.json());
 
@@ -21,4 +23,4 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app });
 
-app.listen(4000, () => console.log(`Server running on http://localhost:4000/graphql`));
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}/graphql`));
