@@ -14,7 +14,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 const server = new ApolloServer({
-  typeDefs, resolvers, playground: true, introspection: true, context: async (ctx) => {
+  typeDefs, resolvers, context: async (ctx) => {
     return {
       loggedInUser: await getUser(ctx.req.headers.token)
     }
