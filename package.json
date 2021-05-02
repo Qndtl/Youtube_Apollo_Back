@@ -25,6 +25,7 @@
     "prisma": "^2.21.2"
   },
   "dependencies": {
+    "@babel/runtime": "^7.14.0",
     "@graphql-tools/load-files": "^6.3.2",
     "@graphql-tools/merge": "^6.2.13",
     "@prisma/client": "^2.21.2",
