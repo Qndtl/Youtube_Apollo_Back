@@ -39,6 +39,7 @@ type Video {
   userId: Int!
   likes: [Like]
   comments: [Comment]
+  view: Int!
   createdAt: String!
   updatedAt: String!
   isLiked: Boolean!
